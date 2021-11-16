@@ -1,0 +1,18 @@
+networks:
+- name: PAS-Infrastructure-Turbulence
+  subnets:
+  - azs:
+    - pas-az1
+    - pas-az2
+    - pas-az3
+    cloud_properties:
+      name: PAS-Infrastructure
+    dns:
+    - 10.192.2.10
+    - 10.192.2.11
+    gateway: 192.168.1.1
+    range: 192.168.1.0/24
+    reserved:
+    - 192.168.1.1-192.168.1.199
+    static: [192.168.1.201]
+  type: manual

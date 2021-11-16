@@ -1,0 +1,24 @@
+---
+releases:
+- name: turbulence
+  version: 0.12.0
+
+addons:
+- name: turbulence_agent
+  jobs:
+  - name: turbulence_agent
+    release: turbulence
+    consumes:
+      api:
+        instances:
+        - address: 192.168.1.201
+        properties:
+          advertised_host: 192.168.1.201
+          username: turbulence
+          password: ((/p-bosh/turbulence/turbulence_api_password))
+          agent_listen_port: 8081
+          cert:
+            ca: ((/p-bosh/turbulence/turbulence_api_ca.ca))
+  exclude:
+    stemcell:
+    - os: windows2019
